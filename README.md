@@ -1,6 +1,8 @@
 [![Build Status][travis-badge]][travis-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
 
+# Table of Contents
+
 - [Project Name](#project-name)
 - [License](#license)
 
