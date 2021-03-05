@@ -1,0 +1,49 @@
+{
+  "private": false,
+  "license": "MIT",
+  "name": "project-name",
+  "description": "Project description",
+  "version": "v0.1.0",
+  "deprecated": false,
+  "type": "commonjs",
+  "files": [],
+  "author": "Viktor Nagy",
+  "engines": {
+    "node": ">= 14"
+  },
+  "homepage": "https://github.com/kmpizmad/project-name#readme",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmpizmad/project-name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kmpizmad/project-name/issues"
+  },
+  "devDependencies": {
+    "@jest/types": "^26.6.2",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "=4",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "git": "git add . && git commit -m",
+    "lint": "eslint . --fix",
+    "test": "yarn lint && jest --detectOpenHandles",
+    "test:coveralls": "yarn test --coverage && coveralls < __coverage__/lcov.info",
+    "build": "yarn lint && rm -rf packages && tsc --project ."
+  }
+}
