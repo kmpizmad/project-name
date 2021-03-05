@@ -42,8 +42,9 @@
   "scripts": {
     "git": "git add . && git commit -m",
     "lint": "eslint . --fix",
-    "test": "yarn lint && jest --detectOpenHandles",
+    "test": "jest --detectOpenHandles",
+    "test:lint": "yarn lint && yarn test",
     "test:coveralls": "yarn test --coverage && coveralls < __coverage__/lcov.info",
-    "build": "yarn lint && rm -rf packages && tsc --project ."
+    "build": "yarn lint && rm -rf build && tsc --project ."
   }
 }
