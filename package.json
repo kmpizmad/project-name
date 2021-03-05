@@ -43,7 +43,6 @@
   "dependencies": {},
   "scripts": {
     "commit": "git add . && git commit -m",
-    "tag": "git tag",
     "push": "git push",
     "push:tags": "yarn push --tags",
     "lint": "eslint . --fix",
