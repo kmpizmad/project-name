@@ -1,5 +1,8 @@
 import { red } from 'chalk';
 
+/**
+ * Represents errors that occur during runtime
+ */
 export class Exception {
   protected _name: string;
   protected _message: string;

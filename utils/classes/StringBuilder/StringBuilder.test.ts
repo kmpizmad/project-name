@@ -1,6 +1,6 @@
 import { EOL } from 'os';
 import {
-  ArgumentException,
+  ArgumentOutOfRangeException,
   IndexOutOfRangeException,
 } from '../../../exceptions';
 import { StringBuilder } from './StringBuilder';
@@ -62,15 +62,17 @@ describe('StringBuilder', () => {
 
   it('throws ArgumentErrorException if index is out of range', () => {
     expect(() => stringBuilder.append('someText', -1)).toThrowError(
-      ArgumentException
+      ArgumentOutOfRangeException
     );
     expect(() => stringBuilder.insert('someOtherText', -1)).toThrowError(
-      ArgumentException
+      ArgumentOutOfRangeException
     );
-    expect(() => stringBuilder.remove(-1)).toThrowError(ArgumentException);
+    expect(() => stringBuilder.remove(-1)).toThrowError(
+      ArgumentOutOfRangeException
+    );
     expect(() =>
       stringBuilder.replace('someText', 'yetAnotherText', -1, 5)
-    ).toThrowError(ArgumentException);
+    ).toThrowError(ArgumentOutOfRangeException);
   });
 
   it('throws IndexOutOfRangeException', () => {

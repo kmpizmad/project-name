@@ -1,6 +1,6 @@
 import { EOL } from 'os';
 import {
-  ArgumentException,
+  ArgumentOutOfRangeException,
   Exception,
   IndexOutOfRangeException,
 } from '../../../exceptions';
@@ -38,7 +38,7 @@ export class StringBuilder {
     const index_: number = startIndex ?? this._str.length;
 
     if (index_ < 0 || index_ > this._str.length) {
-      const ex: Exception = new ArgumentException(
+      const ex: Exception = new ArgumentOutOfRangeException(
         '\'startIndex\' was out of range.'
       );
 
@@ -83,7 +83,9 @@ export class StringBuilder {
     const count_: number = count || 1;
 
     if (index < 0 || index > this._str.length) {
-      const ex: Exception = new ArgumentException('\'index\' was out of range.');
+      const ex: Exception = new ArgumentOutOfRangeException(
+        '\'index\' was out of range.'
+      );
 
       ex.message = `${ex.message}\n${{
         argumentValue: index,
@@ -120,7 +122,7 @@ export class StringBuilder {
     const count_: number = count || this._str.length;
 
     if (index_ < 0 || index_ > this._str.length) {
-      const ex: Exception = new ArgumentException(
+      const ex: Exception = new ArgumentOutOfRangeException(
         '\'startIndex\' was out of range.'
       );
 
@@ -151,7 +153,7 @@ export class StringBuilder {
     const strArr_: string[] = this._str.split('');
 
     if (startIndex < 0 || startIndex > this._str.length) {
-      const ex: Exception = new ArgumentException(
+      const ex: Exception = new ArgumentOutOfRangeException(
         '\'startIndex\' was out of range.'
       );
 
