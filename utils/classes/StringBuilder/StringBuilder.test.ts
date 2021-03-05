@@ -1,3 +1,4 @@
+import { EOL } from 'os';
 import {
   ArgumentException,
   IndexOutOfRangeException,
@@ -26,7 +27,7 @@ describe('StringBuilder', () => {
     expect(stringBuilder.toString()).toBe('!hello- world!hiagain');
 
     stringBuilder.appendLine();
-    expect(stringBuilder.toString()).toBe('!hello- world!hiagain\r\n');
+    expect(stringBuilder.toString()).toBe('!hello- world!hiagain' + EOL);
   });
 
   it('inserts a value', () => {
