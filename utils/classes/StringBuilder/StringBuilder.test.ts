@@ -60,7 +60,7 @@ describe('StringBuilder', () => {
     expect(stringBuilder.toString()).toBe('ll');
   });
 
-  it('throws ArgumentErrorException if index is out of range', () => {
+  it('throws ArgumentOutOfRangeException', () => {
     expect(() => stringBuilder.append('someText', -1)).toThrowError(
       ArgumentOutOfRangeException
     );

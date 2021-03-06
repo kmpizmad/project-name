@@ -166,8 +166,7 @@ export class StringBuilder {
 
     for (let i: number = startIndex; i < count_; i++) {
       if (strArr_[i] == undefined) {
-        const ex: Exception = new IndexOutOfRangeException('');
-        throw ex;
+        throw new IndexOutOfRangeException('');
       }
 
       strArr_[i] = '';

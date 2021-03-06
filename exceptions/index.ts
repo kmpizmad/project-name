@@ -6,6 +6,10 @@ import {
 } from './argument';
 import { ArithmeticException, DivideByZeroException } from './arithmetic';
 import {
+  DirectoryNotFoundException,
+  FileNotFoundException,
+} from './filesystem';
+import {
   FormatException,
   IndexOutOfRangeException,
   KeyNotFoundException,
@@ -19,6 +23,8 @@ export {
   ArgumentOutOfRangeException,
   ArithmeticException,
   DivideByZeroException,
+  DirectoryNotFoundException,
+  FileNotFoundException,
   FormatException,
   IndexOutOfRangeException,
   KeyNotFoundException,
