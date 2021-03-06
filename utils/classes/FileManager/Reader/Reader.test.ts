@@ -7,7 +7,7 @@ import { Reader } from './Reader';
 
 describe('Reader', () => {
   const reader: Reader = new Reader();
-  const path: string = join(process.cwd(), 'environments', '.env');
+  const path: string = join(process.cwd(), 'environments', '.env.example');
   const options:
     | { encoding: BufferEncoding; flag?: string }
     | BufferEncoding = { encoding: 'utf-8' };
