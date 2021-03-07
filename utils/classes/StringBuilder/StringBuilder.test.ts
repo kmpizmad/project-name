@@ -28,6 +28,10 @@ describe('StringBuilder', () => {
 
     stringBuilder.appendLine();
     expect(stringBuilder.toString()).toBe('!hello- world!hiagain' + EOL);
+
+    expect(() => stringBuilder.append('someText', -1)).toThrowError(
+      ArgumentOutOfRangeException
+    );
   });
 
   it('inserts a value', () => {
@@ -39,6 +43,10 @@ describe('StringBuilder', () => {
 
     stringBuilder.insert('!', 0);
     expect(stringBuilder.toString()).toBe('!hello--- world!world!');
+
+    expect(() => stringBuilder.insert('someOtherText', -1)).toThrowError(
+      ArgumentOutOfRangeException
+    );
   });
 
   it('replaces an old value with a new one', () => {
@@ -50,6 +58,10 @@ describe('StringBuilder', () => {
 
     stringBuilder.replace('something', 'anything', 0, 5);
     expect(stringBuilder.toString()).toBe('hello something!something!');
+
+    expect(() =>
+      stringBuilder.replace('someText', 'yetAnotherText', -1, 5)
+    ).toThrowError(ArgumentOutOfRangeException);
   });
 
   it('removes a range', () => {
@@ -58,24 +70,10 @@ describe('StringBuilder', () => {
 
     stringBuilder.remove(0, 2).remove(2);
     expect(stringBuilder.toString()).toBe('ll');
-  });
 
-  it('throws ArgumentOutOfRangeException', () => {
-    expect(() => stringBuilder.append('someText', -1)).toThrowError(
-      ArgumentOutOfRangeException
-    );
-    expect(() => stringBuilder.insert('someOtherText', -1)).toThrowError(
-      ArgumentOutOfRangeException
-    );
     expect(() => stringBuilder.remove(-1)).toThrowError(
       ArgumentOutOfRangeException
     );
-    expect(() =>
-      stringBuilder.replace('someText', 'yetAnotherText', -1, 5)
-    ).toThrowError(ArgumentOutOfRangeException);
-  });
-
-  it('throws IndexOutOfRangeException', () => {
     expect(() => stringBuilder.remove(0, 20)).toThrowError(
       IndexOutOfRangeException
     );
