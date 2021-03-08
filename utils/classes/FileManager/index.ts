@@ -1,3 +1,3 @@
-import { StreamReader } from './StreamReader';
+import { StreamBase, StreamReader, StreamWriter } from './Stream';
 
-export { StreamReader };
+export { StreamBase, StreamReader, StreamWriter };

@@ -1,6 +1,10 @@
+import { ReadStream } from 'fs';
 import { EOL } from 'os';
 import { join } from 'path';
-import { IndexOutOfRangeException } from '../../../../exceptions';
+import {
+  FileNotFoundException,
+  IndexOutOfRangeException,
+} from '../../../../../exceptions';
 import { StreamReader } from './StreamReader';
 
 describe('StreamReader', () => {
@@ -8,7 +12,15 @@ describe('StreamReader', () => {
   const streamReader: StreamReader = new StreamReader(path);
 
   beforeEach(() => streamReader.create());
-  afterEach(() => streamReader.destroy());
+  afterEach(() => streamReader.close());
+
+  it('validates \'path\' param', () => {
+    expect(() => new StreamReader('src')).toThrowError(FileNotFoundException);
+  });
+
+  it('can access the stream through a property', () => {
+    expect(streamReader.stream).toBeInstanceOf(ReadStream);
+  });
 
   it('reads all chunks', () => {
     expect(streamReader.readChunks()).resolves.toEqual(['PORT=8000' + EOL]);
@@ -16,7 +28,7 @@ describe('StreamReader', () => {
 
   it('reads a specific chunk', () => {
     expect(streamReader.readChunk(0)).resolves.toEqual('PORT=8000' + EOL);
-    expect(streamReader.readChunk(-1)).rejects.toThrowError(
+    expect(() => streamReader.readChunk(-1)).rejects.toThrowError(
       IndexOutOfRangeException
     );
   });
@@ -27,7 +39,7 @@ describe('StreamReader', () => {
 
   it('reads a specific line', () => {
     expect(streamReader.readLine(0)).resolves.toEqual('PORT=8000');
-    expect(streamReader.readLine(-1)).rejects.toThrowError(
+    expect(() => streamReader.readLine(-1)).rejects.toThrowError(
       IndexOutOfRangeException
     );
   });

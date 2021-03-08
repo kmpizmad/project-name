@@ -1,26 +1,11 @@
-import {
-  existsSync,
-  lstatSync,
-  createReadStream,
-  ReadStream,
-  PathLike,
-} from 'fs';
+import { createReadStream, PathLike, ReadStream } from 'fs';
 import { EOL } from 'os';
-import {
-  FileNotFoundException,
-  IndexOutOfRangeException,
-} from '../../../../exceptions';
+import { IndexOutOfRangeException } from '../../../../../exceptions';
+import { StreamBase } from '../StreamBase';
 
-export class StreamReader {
-  protected _stream: ReadStream;
-  protected _path: PathLike;
-
+export class StreamReader extends StreamBase {
   constructor(path: PathLike) {
-    if (!existsSync(path) && !lstatSync(path).isFile()) {
-      throw new FileNotFoundException(`'${path}' is not a file.`);
-    }
-
-    this._path = path;
+    super(path);
   }
 
   public create(
@@ -41,11 +26,7 @@ export class StreamReader {
   }
 
   public close(): void {
-    this._stream.close();
-  }
-
-  public destroy(): void {
-    this._stream.destroy();
+    (this._stream as ReadStream).close();
   }
 
   public async readChunks(): Promise<string[]> {
