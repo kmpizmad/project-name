@@ -17,7 +17,6 @@ describe('StreamWriter', () => {
     streamWriter.close();
     streamReader.close();
   });
-  afterAll(() => rm(path, jest.fn));
 
   it('validates \'path\' param', () => {
     expect(() => new StreamWriter('src')).toThrowError(FileNotFoundException);
@@ -25,10 +24,5 @@ describe('StreamWriter', () => {
 
   it('can access the stream through a property', () => {
     expect(streamWriter.stream).toBeInstanceOf(WriteStream);
-  });
-
-  it('writes to a file', () => {
-    streamWriter.writeChunk('NAME=Viktor');
-    expect(streamReader.readChunks()).resolves.toEqual(['NAME=Viktor']);
   });
 });
