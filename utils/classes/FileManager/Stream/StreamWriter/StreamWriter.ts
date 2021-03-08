@@ -36,8 +36,4 @@ export class StreamWriter extends StreamBase {
   public close(): void {
     (this._stream as WriteStream).close();
   }
-
-  public writeChunk(chunk: string | Buffer): void {
-    (this._stream as WriteStream).write(chunk);
-  }
 }
