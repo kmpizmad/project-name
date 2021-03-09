@@ -1,6 +1,6 @@
 import { createReadStream, PathLike, ReadStream } from 'fs';
 import { EOL } from 'os';
-import { IndexOutOfRangeException } from '../../../../../exceptions';
+import { IndexOutOfRangeException } from '../../../../exceptions';
 import { StreamBase } from '../StreamBase';
 
 export class StreamReader extends StreamBase {

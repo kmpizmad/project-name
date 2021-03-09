@@ -1,3 +1,3 @@
-import { StreamBase, StreamReader, StreamWriter } from './Stream';
+import { FileManager } from './FileManager';
 
-export { StreamBase, StreamReader, StreamWriter };
+export { FileManager };

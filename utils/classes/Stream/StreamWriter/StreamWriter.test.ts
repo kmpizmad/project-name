@@ -1,6 +1,6 @@
-import { WriteStream, rm } from 'fs';
+import { WriteStream } from 'fs';
 import { join } from 'path';
-import { FileNotFoundException } from '../../../../../exceptions';
+import { FileNotFoundException } from '../../../../exceptions';
 import { StreamReader } from '../StreamReader';
 import { StreamWriter } from './StreamWriter';
 

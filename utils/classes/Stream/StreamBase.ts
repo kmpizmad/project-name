@@ -1,6 +1,6 @@
 import { existsSync, lstatSync, PathLike } from 'fs';
 import { Stream } from 'stream';
-import { FileNotFoundException } from '../../../../exceptions';
+import { FileNotFoundException } from '../../../exceptions';
 
 export abstract class StreamBase {
   protected _stream: Stream;

@@ -4,7 +4,7 @@ import { join } from 'path';
 import {
   FileNotFoundException,
   IndexOutOfRangeException,
-} from '../../../../../exceptions';
+} from '../../../../exceptions';
 import { StreamReader } from './StreamReader';
 
 describe('StreamReader', () => {
