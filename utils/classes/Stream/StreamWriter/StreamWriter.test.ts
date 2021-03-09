@@ -1,4 +1,4 @@
-import { WriteStream, rm } from 'fs';
+import { WriteStream, rmSync } from 'fs';
 import { join } from 'path';
 import { FileNotFoundException } from '../../../../exceptions';
 import { StreamReader } from '../StreamReader';
@@ -17,7 +17,7 @@ describe('StreamWriter', () => {
     streamWriter.close();
     streamReader.close();
   });
-  afterAll(() => rm(path, jest.fn));
+  afterAll(() => rmSync(path));
 
   it('validates \'path\' param', () => {
     expect(() => new StreamWriter('src')).toThrowError(FileNotFoundException);
