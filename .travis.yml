@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - node
 scripts:
-  - yarn lint
+  - yarn lint:fix
   - yarn test:coveralls
 nofications:
   - email: false
