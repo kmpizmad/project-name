@@ -3,7 +3,7 @@ import {
   ArgumentOutOfRangeException,
   Exception,
   IndexOutOfRangeException,
-} from '../../../exceptions';
+} from '../exceptions';
 
 export class StringBuilder {
   protected _str: string;

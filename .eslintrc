@@ -1,19 +1,21 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:editorconfig/all"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "prettier", "editorconfig"],
   "rules": {
     "camelcase": "error",
     "capitalized-comments": [
@@ -23,6 +25,7 @@
     ],
     "indent": ["error", 2],
     "linebreak-style": ["error", "windows"],
+    "no-extra-boolean-cast": "off",
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "spaced-comment": ["warn", "always"],
@@ -30,6 +33,10 @@
       "error",
       { "allow": ["constructors"] }
     ],
-    "@typescript-eslint/no-inferrable-types": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-var-requires": "off"
   }
 }
