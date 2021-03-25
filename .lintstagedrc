@@ -1,3 +1,6 @@
 {
-  "**/*.{ts,tsx}": ["yarn lint", "yarn test --findRelatedTests"]
+  "**/*.{ts,tsx}": [
+    "yarn lint:fix",
+    "yarn test --findRelatedTests"
+  ]
 }
